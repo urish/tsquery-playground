@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "public": "dist/tsquery-playground",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

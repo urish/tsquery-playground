@@ -1,5 +1,7 @@
 # TSQuery Playground
 
+[Live Demo](https://tsquery-playground.firebaseapp.com/)
+
 ## Development server
 
 Run `yarn start` for a dev server, then navigate to `http://localhost:4200/`.
