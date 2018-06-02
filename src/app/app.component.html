@@ -1,5 +1,11 @@
 <div class="container">
-  <h2 class="mat-h2">TSQuery Playground</h2>
+  <header>
+    <h2 class="mat-h2">TSQuery Playground</h2>
+    <div class="flex-spacer"></div>
+    <a mat-button href="https://github.com/urish/tsquery-playground" target="_blank" aria-label="GitHub Repository">
+      <img class="github-logo" src="assets/github-logo.svg" alt="GitHub" /> GitHub
+    </a>
+  </header>
   <mat-form-field class="query-input">
     <input matInput (input)="updateQuery($event.target.value)" [value]="query" placeholder="AST Query:" />
   </mat-form-field>
@@ -22,7 +28,7 @@
   </div>
   <p class="mat-typography status-bar">
     <span>Total Matches: {{results.length}}</span>
-    <span class="spacer"></span>
+    <span class="flex-spacer"></span>
     <span>&copy; 2018, Uri Shaked</span>
   </p>
 </div>

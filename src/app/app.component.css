@@ -9,6 +9,20 @@
   padding: 16px;
 }
 
+header {
+  display: flex;
+  align-items: center;
+}
+
+.github-logo {
+  height: 26px;
+  margin: 0 4px 3px 0;
+}
+
+.flex-spacer {
+  flex: 1;
+}
+
 .split-view {
   display: flex;
   flex: 1;
@@ -46,8 +60,4 @@
 
 .status-bar {
   display: flex;
-}
-
-.status-bar .spacer {
-  flex: 1;
 }
