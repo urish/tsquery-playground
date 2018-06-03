@@ -37,6 +37,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   runQuery() {
+    const { codeMirror } = this.codeEditor;
+    (codeMirror as any).setSelection((codeMirror as any).getCursor());
     const ast = tsquery.ast(this.sourceCode, 'playground.ts');
     this.ast = astDump(ast);
     this.selectorError = null;
@@ -46,7 +48,6 @@ export class AppComponent implements AfterViewInit {
       this.selectorError = err.toString();
       return;
     }
-    const { codeMirror } = this.codeEditor;
     if (codeMirror) {
       const selections = this.results.map(nodeToSelection);
       (codeMirror as any).setSelections(selections);
