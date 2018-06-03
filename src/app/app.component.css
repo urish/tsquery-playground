@@ -30,6 +30,11 @@ header {
 
 .query-input {
   width: 100%;
+  margin-bottom: 8px;
+}
+
+.query-input .error-message {
+  color: #f44336;
 }
 
 .split-view h3 {

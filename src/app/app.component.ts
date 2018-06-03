@@ -4,6 +4,7 @@ import { tsquery } from '@phenomnomnominal/tsquery';
 import 'codemirror/mode/javascript/javascript';
 import * as ts from 'typescript';
 import { astDump, nodeToSelection } from './ast-utils';
+import { TSQueryApi, TSQueryNode } from '@phenomnomnominal/tsquery/dist/src/tsquery-types';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent implements AfterViewInit {
     'const magic = 5;\n\nfunction f(n:any){\n  return n+n;\n}\n\n\nfunction g() {\n  return f(magic);\n}\n\nconsole.log(g());';
   query = 'FunctionDeclaration';
   ast: object | null = null;
+  selectorError: string | null = null;
   results: ts.Node[] = [];
 
   readonly codemirrorOptions = {
@@ -37,7 +39,13 @@ export class AppComponent implements AfterViewInit {
   runQuery() {
     const ast = tsquery.ast(this.sourceCode, 'playground.ts');
     this.ast = astDump(ast);
-    this.results = tsquery(ast, this.query);
+    this.selectorError = null;
+    try {
+      this.results = tsquery(ast, this.query);
+    } catch (err) {
+      this.selectorError = err.toString();
+      return;
+    }
     const { codeMirror } = this.codeEditor;
     if (codeMirror) {
       const selections = this.results.map(nodeToSelection);

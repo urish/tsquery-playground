@@ -8,6 +8,7 @@
   </header>
   <mat-form-field class="query-input">
     <input matInput (input)="updateQuery($event.target.value)" [value]="query" placeholder="AST Query:" />
+    <mat-hint class="error-message" *ngIf="selectorError">{{selectorError}}</mat-hint>
   </mat-form-field>
   <div class="split-view">
     <div class="mat-elevation-z3">
