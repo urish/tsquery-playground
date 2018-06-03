@@ -216,9 +216,9 @@
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
 
-"@phenomnomnominal/tsquery@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-1.0.5.tgz#ba75d8e403f23a67b49d983b763918f6505441e4"
+"@phenomnomnominal/tsquery@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-2.0.0-beta.1.tgz#f1e0ecb791687a315e395993074ca9aae3520c85"
   dependencies:
     esquery "^1.0.1"
 
