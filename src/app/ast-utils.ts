@@ -1,8 +1,9 @@
 import * as ts from 'typescript';
+import { tsquery } from '@phenomnomnominal/tsquery';
 
 export function astDump(node: ts.Node): object {
   const result: { [key: string]: any } = {};
-  result.kind = ts.SyntaxKind[node.kind];
+  result.kind = tsquery.syntaxKindName(node.kind);
   for (const prop of Object.keys(node)) {
     if (prop === 'parent') {
       continue;
