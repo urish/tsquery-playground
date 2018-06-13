@@ -13,7 +13,10 @@ export function astDump(node: ts.Node): object {
       result[prop] = astDump(value);
     }
     if (value instanceof Array) {
-      result[prop] = value.map(astDump);
+      const entries = value.map(astDump);
+      if (entries.length) {
+        result[prop] = entries;
+      }
     }
   }
   return result;
