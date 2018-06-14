@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "yarn build --prod && firebase deploy",
+    "deploy": "yarn build --prod --no-build-optimizer && firebase deploy",
     "precommit": "lint-staged"
   },
   "private": true,
