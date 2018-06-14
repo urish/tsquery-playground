@@ -1,28 +1,17 @@
 import * as ts from 'typescript';
-import { tsquery } from '@phenomnomnominal/tsquery';
 
-export function astDump(node: ts.Node): object {
-  const result: { [key: string]: any } = {};
-  result.kind = tsquery.syntaxKindName(node.kind);
-  for (const prop of Object.keys(node)) {
-    if (prop === 'parent') {
-      continue;
-    }
-    const value = node[prop];
-    if (value && value.kind) {
-      result[prop] = astDump(value);
-    }
-    if (value instanceof Array) {
-      const entries = value.map(astDump);
-      if (entries.length) {
-        result[prop] = entries;
-      }
-    }
-  }
+export interface ICodeMirrorPosition {
+  line: number;
+  ch: number;
+}
+
+export function astChildren(node: ts.Node) {
+  const result = [];
+  ts.forEachChild(node, (child) => (result.push(child), false));
   return result;
 }
 
-function lineCh({ line, character }: { line: number; character: number }) {
+function lineCh({ line, character }: { line: number; character: number }): ICodeMirrorPosition {
   return { line, ch: character };
 }
 
@@ -32,4 +21,23 @@ export function nodeToSelection(node: ts.Node) {
     head: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getStart())),
     anchor: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getEnd())),
   };
+}
+
+export function getNodeAtFileOffset(node: ts.Node, offset: number) {
+  let result = null as ts.Node | null;
+  const visit = (childNode: ts.Node) => {
+    ts.forEachChild(childNode, visit);
+    if (!result && (childNode.getStart() <= offset && childNode.getEnd() > offset)) {
+      result = childNode;
+    }
+  };
+  visit(node);
+  return result;
+}
+
+export function positionToNode(ast: ts.SourceFile, position: ICodeMirrorPosition) {
+  return getNodeAtFileOffset(
+    ast,
+    ts.getPositionOfLineAndCharacter(ast, position.line, position.ch),
+  );
 }

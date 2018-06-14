@@ -13,18 +13,13 @@
   <div class="split-view">
     <div class="mat-elevation-z3">
       <h3 class="mat-h3">Code</h3>
-      <ngx-codemirror #codeEditor [(ngModel)]="sourceCode" [options]="codemirrorOptions" (focusChange)="runQuery()">
+      <ngx-codemirror #codeEditor [(ngModel)]="sourceCode" [options]="codemirrorOptions" (focusChange)="runQuery()" (cursorActivity)="cursorMoved()">
       </ngx-codemirror>
     </div>
     <div class="spacer"></div>
     <div class="mat-elevation-z3">
       <h3 class="mat-h3">AST</h3>
-      <ngx-codemirror [ngModel]="ast|json" [options]="{
-          lineNumbers: true,
-          readOnly: true,
-          mode: {name: 'javascript', json: true},
-          theme: 'eclipse'
-        }"></ngx-codemirror>
+      <app-ast-viewer [ast]="ast" [highlightNode]="activeNode"></app-ast-viewer>
     </div>
   </div>
   <p class="mat-typography status-bar">

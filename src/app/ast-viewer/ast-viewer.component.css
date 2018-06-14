@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+}
+
+.ast-tree {
+  flex: 1;
+  overflow: auto;
+}
+
+.ast-tree-invisible {
+  display: none;
+}
+
+.ast-tree ul,
+.ast-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.highlight {
+  background: yellow;
+}
