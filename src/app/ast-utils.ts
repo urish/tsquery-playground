@@ -1,9 +1,5 @@
+import { Position } from 'codemirror';
 import * as ts from 'typescript';
-
-export interface ICodeMirrorPosition {
-  line: number;
-  ch: number;
-}
 
 export function astChildren(node: ts.Node) {
   const result = [];
@@ -11,15 +7,15 @@ export function astChildren(node: ts.Node) {
   return result;
 }
 
-function lineCh({ line, character }: { line: number; character: number }): ICodeMirrorPosition {
+function lineCh({ line, character }: { line: number; character: number }): Position {
   return { line, ch: character };
 }
 
-export function nodeToSelection(node: ts.Node) {
+export function nodeToMarker(node: ts.Node) {
   const sourceFile = node.getSourceFile();
   return {
-    head: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getStart())),
-    anchor: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getEnd())),
+    start: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getStart())),
+    end: lineCh(ts.getLineAndCharacterOfPosition(sourceFile, node.getEnd())),
   };
 }
 
@@ -35,7 +31,7 @@ export function getNodeAtFileOffset(node: ts.Node, offset: number) {
   return result;
 }
 
-export function positionToNode(ast: ts.SourceFile, position: ICodeMirrorPosition) {
+export function positionToNode(ast: ts.SourceFile, position: Position) {
   return getNodeAtFileOffset(
     ast,
     ts.getPositionOfLineAndCharacter(ast, position.line, position.ch),

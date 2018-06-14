@@ -1,9 +1,12 @@
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { CodemirrorComponent } from '@ctrl/ngx-codemirror';
 import { tsquery } from '@phenomnomnominal/tsquery';
+import { Doc, TextMarker } from 'codemirror';
 import 'codemirror/mode/javascript/javascript';
 import * as ts from 'typescript';
-import { ICodeMirrorPosition, nodeToSelection, positionToNode } from './ast-utils';
+import { nodeToMarker, positionToNode } from './ast-utils';
+
+const matchHighlightClass = 'ast-match-highlight';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +30,7 @@ export class AppComponent implements AfterViewInit {
     mode: { name: 'javascript', typescript: true },
   };
 
-  constructor(private changeDetector: ChangeDetectorRef) {}
+  private markers: TextMarker[] = [];
 
   ngAfterViewInit() {
     setTimeout(() => this.runQuery());
@@ -38,9 +41,11 @@ export class AppComponent implements AfterViewInit {
     this.runQuery();
   }
 
+  get doc() {
+    return (this.codeEditor.codeMirror as any) as Doc;
+  }
+
   runQuery() {
-    const { codeMirror } = this.codeEditor;
-    (codeMirror as any).setSelection((codeMirror as any).getCursor());
     this.ast = tsquery.ast(this.sourceCode, 'playground.ts');
     this.selectorError = null;
     try {
@@ -49,16 +54,30 @@ export class AppComponent implements AfterViewInit {
       this.selectorError = err.toString();
       return;
     }
-    if (codeMirror) {
-      const selections = this.results.map(nodeToSelection);
-      (codeMirror as any).setSelections(selections);
+    const { doc } = this;
+    if (doc) {
+      this.clearMarkers();
+      const markerPositions = this.results.map(nodeToMarker);
+      this.markers = markerPositions.map(({ start, end }) =>
+        doc.markText(start, end, {
+          className: matchHighlightClass,
+          title: this.query,
+        }),
+      );
     }
   }
 
   cursorMoved() {
     if (this.ast) {
-      const cursorPos = (this.codeEditor.codeMirror as any).getCursor() as ICodeMirrorPosition;
+      const cursorPos = this.doc.getCursor();
       this.activeNode = positionToNode(this.ast, cursorPos);
     }
+  }
+
+  private clearMarkers() {
+    for (const marker of this.markers) {
+      marker.clear();
+    }
+    this.markers = [];
   }
 }

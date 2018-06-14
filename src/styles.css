@@ -1,2 +1,6 @@
-@import "~codemirror/lib/codemirror.css";
-@import "~codemirror/theme/material.css";
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';
+
+.ast-match-highlight {
+  background-color: rgba(255, 255, 0, 0.3);
+}
