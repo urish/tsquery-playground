@@ -16,7 +16,7 @@ const matchHighlightClass = 'ast-match-highlight';
 export class AppComponent implements AfterViewInit {
   @ViewChild('codeEditor') codeEditor: CodemirrorComponent;
 
-  sourceCode =
+  private _sourceCode =
     'const magic = 5;\n\nfunction f(n:any){\n  return n+n;\n}\n\n\nfunction g() {\n  return f(magic);\n}\n\nconsole.log(g());';
   query = 'FunctionDeclaration';
   ast: ts.SourceFile | null = null;
@@ -34,6 +34,17 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => this.runQuery());
+  }
+
+  get sourceCode() {
+    return this._sourceCode;
+  }
+
+  set sourceCode(value: string) {
+    if (value !== this._sourceCode) {
+      this._sourceCode = value;
+      this.runQuery();
+    }
   }
 
   updateQuery(query: string) {
