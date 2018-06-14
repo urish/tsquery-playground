@@ -13,6 +13,7 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { AppComponent } from './app.component';
 import { AstViewerComponent } from './ast-viewer/ast-viewer.component';
 import { SyntaxKindNamePipe } from './syntax-kind-name.pipe';
+import { ScrollIntoViewDirective } from './scroll-into-view.directive';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { SyntaxKindNamePipe } from './syntax-kind-name.pipe';
     MatTreeModule,
     MatIconModule,
   ],
-  declarations: [AppComponent, AstViewerComponent, SyntaxKindNamePipe],
+  declarations: [AppComponent, AstViewerComponent, SyntaxKindNamePipe, ScrollIntoViewDirective],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
