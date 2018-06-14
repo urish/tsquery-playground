@@ -1,0 +1,26 @@
+# Source: https://github.com/angular/angular-cli/wiki/stories-continuous-integration
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - "stable"
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+     - ./node_modules
+
+install:
+  - yarn
+
+script:
+  # Use Chromium instead of Chrome.
+  - export CHROME_BIN=chromium-browser
+  - xvfb-run -a yarn test --no-watch --no-progress --browsers=ChromeNoSandbox

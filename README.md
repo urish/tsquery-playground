@@ -1,6 +1,8 @@
 # TSQuery Playground
 
-[Live Demo](https://tsquery-playground.firebaseapp.com/)
+[![Build Status](https://travis-ci.org/urish/tsquery-playground.svg?branch=master)](https://travis-ci.org/urish/tsquery-playground)
+
+🔍 [Live Demo](https://tsquery-playground.firebaseapp.com/)
 
 ## Development server
 
