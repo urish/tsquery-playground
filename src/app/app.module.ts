@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AstViewerComponent } from './ast-viewer/ast-viewer.component';
 import { SyntaxKindNamePipe } from './syntax-kind-name.pipe';
 import { ScrollIntoViewDirective } from './scroll-into-view.directive';
+import { NodeEqualsToPipe } from './node-equals-to.pipe';
 
 @NgModule({
   imports: [
@@ -27,7 +28,13 @@ import { ScrollIntoViewDirective } from './scroll-into-view.directive';
     MatTreeModule,
     MatIconModule,
   ],
-  declarations: [AppComponent, AstViewerComponent, SyntaxKindNamePipe, ScrollIntoViewDirective],
+  declarations: [
+    AppComponent,
+    AstViewerComponent,
+    SyntaxKindNamePipe,
+    ScrollIntoViewDirective,
+    NodeEqualsToPipe,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
