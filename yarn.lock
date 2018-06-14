@@ -217,11 +217,11 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@ctrl/ngx-codemirror@^1.3.5":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@ctrl/ngx-codemirror/-/ngx-codemirror-1.3.5.tgz#8676abc57b445a7c4648e13ca432c006659fb8e0"
+"@ctrl/ngx-codemirror@^1.3.6":
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/@ctrl/ngx-codemirror/-/ngx-codemirror-1.3.6.tgz#055addd897b23f9dfe75ff4709602e3b15242e98"
   dependencies:
-    "@types/codemirror" "0.0.56"
+    "@types/codemirror" "0.0.57"
     tslib "^1.9.0"
 
 "@ngtools/webpack@6.0.5":
@@ -263,9 +263,9 @@
     semver "^5.3.0"
     semver-intersect "^1.1.2"
 
-"@types/codemirror@0.0.56":
-  version "0.0.56"
-  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.56.tgz#1fcf68df0d0a49791d843dadda7d94891ac88669"
+"@types/codemirror@0.0.57":
+  version "0.0.57"
+  resolved "https://registry.yarnpkg.com/@types/codemirror/-/codemirror-0.0.57.tgz#1b10e330be084e066772883fc3022aae22907cd4"
 
 "@types/jasmine@*", "@types/jasmine@~2.8.6":
   version "2.8.7"

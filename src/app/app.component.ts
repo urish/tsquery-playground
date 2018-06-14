@@ -59,9 +59,6 @@ export class AppComponent implements AfterViewInit {
     if (this.ast) {
       const cursorPos = (this.codeEditor.codeMirror as any).getCursor() as ICodeMirrorPosition;
       this.activeNode = positionToNode(this.ast, cursorPos);
-      // The next line is required as ngx-codemirror does not run this event handler in the NgZone.
-      // See: https://github.com/TypeCtrl/ngx-codemirror/issues/101
-      this.changeDetector.detectChanges();
     }
   }
 }
