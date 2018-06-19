@@ -91,4 +91,10 @@ export class AppComponent implements AfterViewInit {
     }
     this.markers = [];
   }
+
+  activateNode(node: ts.Node) {
+    const { start, end } = nodeToMarker(node);
+    this.doc.setSelection(end, start, { scroll: true });
+    this.activeNode = node;
+  }
 }

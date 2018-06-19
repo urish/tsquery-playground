@@ -22,6 +22,10 @@
   background: yellow;
 }
 
+.ast-node-name {
+  font-weight: inherit;
+}
+
 .node-attribute {
   color: gray;
 }

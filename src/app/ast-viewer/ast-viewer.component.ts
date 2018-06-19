@@ -1,5 +1,5 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material';
 import { of as observableOf } from 'rxjs';
 import * as ts from 'typescript';
@@ -13,6 +13,7 @@ import { astChildren } from '../ast-utils';
 export class AstViewerComponent implements OnInit, OnChanges {
   @Input() ast: ts.Node;
   @Input() highlightNode: ts.Node;
+  @Output() nodeSelected = new EventEmitter<ts.Node>();
 
   treeControl = new NestedTreeControl<ts.Node>((node: ts.Node) => observableOf(astChildren(node)));
   dataSource = new MatTreeNestedDataSource<ts.Node>();
