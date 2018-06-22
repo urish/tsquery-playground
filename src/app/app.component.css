@@ -45,6 +45,8 @@ header {
 .split-view > div {
   flex: 1;
   display: flex;
+  max-width: 50%;
+  min-width: 50%;
   flex-direction: column;
 }
 
