@@ -60,7 +60,7 @@ export class AppComponent implements AfterViewInit {
     this.ast = tsquery.ast(this.sourceCode, 'playground.ts');
     this.selectorError = null;
     try {
-      this.results = tsquery(this.ast, this.query);
+      this.results = tsquery(this.ast, this.query, { visitAllChildren: true });
     } catch (err) {
       this.selectorError = err.toString();
       return;
