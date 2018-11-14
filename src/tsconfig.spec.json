@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
     "module": "commonjs",
-    "types": ["jasmine", "node"]
+    "types": ["jest"]
   },
   "files": ["test.ts", "polyfills.ts", "dummy.ts"],
   "include": ["**/*.spec.ts", "**/*.d.ts"]
