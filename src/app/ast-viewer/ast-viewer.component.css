@@ -25,12 +25,3 @@
 .ast-node-name {
   font-weight: inherit;
 }
-
-.node-attribute {
-  color: gray;
-}
-
-.node-attribute:before {
-  display: inline-block;
-  content: " ";
-}

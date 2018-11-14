@@ -1,0 +1,7 @@
+{{nodeInfo.kindName}}
+<span *ngIf="nodeInfo.value != null" class="node-attribute">
+  [value={{nodeInfo.value}}]
+</span>
+<span *ngIf="nodeInfo.kindName == 'Identifier'" class="node-attribute">
+  [name={{nodeInfo.text}}]
+</span>

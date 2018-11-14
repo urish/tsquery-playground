@@ -12,9 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { AppComponent } from './app.component';
 import { AstViewerComponent } from './ast-viewer/ast-viewer.component';
-import { SyntaxKindNamePipe } from './syntax-kind-name.pipe';
-import { ScrollIntoViewDirective } from './scroll-into-view.directive';
 import { NodeEqualsToPipe } from './node-equals-to.pipe';
+import { NodeItemComponent } from './node-item/node-item.component';
+import { ScrollIntoViewDirective } from './scroll-into-view.directive';
 
 @NgModule({
   imports: [
@@ -31,9 +31,9 @@ import { NodeEqualsToPipe } from './node-equals-to.pipe';
   declarations: [
     AppComponent,
     AstViewerComponent,
-    SyntaxKindNamePipe,
     ScrollIntoViewDirective,
     NodeEqualsToPipe,
+    NodeItemComponent,
   ],
   bootstrap: [AppComponent],
 })
