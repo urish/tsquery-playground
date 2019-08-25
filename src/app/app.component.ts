@@ -14,7 +14,7 @@ const matchHighlightClass = 'ast-match-highlight';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChild('codeEditor') codeEditor: CodemirrorComponent;
+  @ViewChild('codeEditor', { static: false }) codeEditor: CodemirrorComponent;
 
   private _sourceCode =
     'const magic = 5;\n\nfunction f(n:any){\n  return n+n;\n}\n\n\nfunction g() {\n  return f(magic);\n}\n\nconsole.log(g());';

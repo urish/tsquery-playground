@@ -66,16 +66,7 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {
-            "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
-              "src/styles.css"
-            ],
-            "scripts": [],
-            "assets": ["src/favicon.ico", "src/assets"]
-          }
+          "options": {}
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
