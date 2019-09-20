@@ -203,13 +203,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/http@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@angular/http/-/http-7.0.3.tgz#5447595d289ce5a9607c7bbecaddd954d9f0b068"
-  integrity sha512-aL+z1/tbVY8oJw5v46rbMli5vBGDVyJvs95d1l2n3hWnwMTzS9AVetjcL3B3uruAYuXoh4QlSJ+ysBgdmV1+IA==
-  dependencies:
-    tslib "^1.9.0"
-
 "@angular/language-service@^8.2.3":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-8.2.3.tgz#ee4b59294615722f93a96f36dacc7109f69c09d4"
