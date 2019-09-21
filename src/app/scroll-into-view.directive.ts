@@ -10,7 +10,15 @@ export class ScrollIntoViewDirective implements OnChanges {
 
   ngOnChanges() {
     if (this.appScrollIntoView) {
-      this.elRef.nativeElement.scrollIntoView();
+      // give the tree time to animate and expand
+      setTimeout(
+        () =>
+          this.elRef.nativeElement.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'start',
+          }),
+        150,
+      );
     }
   }
 }

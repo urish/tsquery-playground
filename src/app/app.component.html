@@ -19,7 +19,9 @@
     <div class="spacer"></div>
     <div class="mat-elevation-z3">
       <h3 class="mat-h3">AST</h3>
-      <app-ast-viewer [ast]="ast" [highlightNode]="activeNode" (nodeSelected)="activateNode($event)"></app-ast-viewer>
+      <div class="scrollable">
+        <app-ast-viewer [ast]="ast" [highlightNode]="activeNode" (nodeSelected)="activateNode($event)"></app-ast-viewer>
+      </div>
     </div>
   </div>
   <p class="mat-typography status-bar">

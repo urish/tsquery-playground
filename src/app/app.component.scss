@@ -25,7 +25,11 @@ header {
 
 .split-view {
   display: flex;
+  flex-direction: column;
   flex: 1;
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
+  }
 }
 
 .query-input {
@@ -45,9 +49,17 @@ header {
 .split-view > div {
   flex: 1;
   display: flex;
-  max-width: 50%;
-  min-width: 50%;
   flex-direction: column;
+  height: 50%;
+  overflow: scroll;
+
+  @media only screen and (min-width: 600px) {
+    height: 100%;
+  }
+}
+
+.scrollable {
+  overflow: scroll;
 }
 
 .split-view ngx-codemirror {
@@ -55,7 +67,7 @@ header {
   display: flex;
 }
 
-.split-view ::ng-deep .CodeMirror  {
+.split-view ::ng-deep .CodeMirror {
   flex: 1;
   height: 100%;
 }
