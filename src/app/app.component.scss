@@ -58,6 +58,10 @@ header {
   }
 }
 
+.scrollable {
+  overflow: scroll;
+}
+
 .split-view ngx-codemirror {
   flex: 1;
   display: flex;
