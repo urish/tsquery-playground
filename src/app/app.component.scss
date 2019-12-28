@@ -1,7 +1,7 @@
 .container {
   position: fixed;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   top: 0;
   bottom: 0;
   right: 0;
