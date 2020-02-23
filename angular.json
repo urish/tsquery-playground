@@ -98,5 +98,8 @@
       }
     }
   },
-  "defaultProject": "tsquery-playground"
+  "defaultProject": "tsquery-playground",
+  "cli": {
+    "analytics": "d1eda589-77cc-407e-8be3-299d3e9591ac"
+  }
 }
